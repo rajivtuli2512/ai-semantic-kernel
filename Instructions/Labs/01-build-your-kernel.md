@@ -39,7 +39,9 @@ This exercise takes approximately **10** minutes to complete.
 
     You'll use the data here in the next task to build your kernel. Remember to keep your keys private and secure!
 
-## Configure the kernel and run a prompt
+## Create a Semantic Kernel client application
+
+### Configure your application
 
 1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`; signing in with your Azure credentials if prompted.
 
@@ -93,6 +95,28 @@ This exercise takes approximately **10** minutes to complete.
     ```
     dotnet add package Microsoft.SemanticKernel
     ```
+
+1. Enter the following command to edit the configuration file that has been provided:
+
+    **Python**
+
+    ```
+    code .env
+    ```
+
+    **C#**
+
+    ```
+    code appsettings.json
+    ```
+
+    The file should open in a code editor.
+
+1. In the code file, replace the **your_project_endpoint** and **your_project_api_key** placeholders with the Azure OpenAI endpoint and API key for your project (copied from the project **Overview** page in the Azure AI Foundry portal), and replace the **your_deployment_name** placeholder with the name you assigned to your gpt-4o model.
+
+1. After you replace the placeholders, in the code editor, use the **CTRL+S** command or **Right-click > Save** to save your changes and then use the **CTRL+Q** command or **Right-click > Quit** to close the code editor while keeping the cloud shell command line open.
+
+### Run a prompt with Semantic Kernel
 
 1. Enter the following commands to edit the code file:
 
