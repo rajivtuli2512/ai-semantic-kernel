@@ -14,7 +14,7 @@ This exercise takes approximately **15** minutes to complete.
 
 1. In a web browser, open the [Azure AI Foundry portal](https://ai.azure.com) at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Azure AI Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
 
-    ![Screenshot of Azure AI Foundry portal.](./Media/ai-foundry-home.png)
+    ![Screenshot of Azure AI Foundry portal.](../Media/ai-foundry-home.png)
 
 1. In the home page, in the **Explore models and capabilities** section, search for the `gpt-4o` model; which we'll use in our project.
 1. In the search results, select the **gpt-4o** model to see its details, and then at the top of the page for the model, select **Use this model**.
@@ -33,7 +33,7 @@ This exercise takes approximately **15** minutes to complete.
 
     > **Note**: If an *Insufficient permissions** error is displayed, use the **Fix me** button to resolve it.
 
-    ![Screenshot of a Azure AI Foundry project overview page.](./Media/ai-foundry-project.png)
+    ![Screenshot of a Azure AI Foundry project overview page.](../Media/ai-foundry-project.png)
 
 1. Under the **Libraries** section of the overview page, select **Azure OpenAI**
 
@@ -146,6 +146,7 @@ Now you create a plugin class for your travel agent. The class includes function
 
     **Python**
     ```python
+    # Create a plugin function with kernel function attributes
     @kernel_function(description="Searches for available flights based on the destination and departure date in the format YYYY-MM-DD")
     def search_flights(self, destination, departure_date):
         # Filter flights based on destination
