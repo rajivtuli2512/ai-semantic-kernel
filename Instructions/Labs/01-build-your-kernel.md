@@ -41,6 +41,8 @@ This exercise takes approximately **10** minutes to complete.
 
 ## Create a Semantic Kernel client application
 
+Now that you deployed a model, you can use the Semantic Kernel SDK to create a client application that chats with it. Let's get started!
+
 ### Configure your application
 
 1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`; signing in with your Azure credentials if prompted.
