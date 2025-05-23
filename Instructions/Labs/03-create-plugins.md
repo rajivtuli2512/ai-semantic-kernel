@@ -172,7 +172,7 @@ Now you create a plugin class for your travel agent. The class includes function
     ```python
     # Filter flights based on destination
     matching_flights = [
-        flight for flight in flights
+        flight for flight in self.flights
         if flight.Destination.lower() == destination.lower() and flight.DepartureDate == departure_date
     ]
     return matching_flights
@@ -212,7 +212,7 @@ Now you create a plugin class for your travel agent. The class includes function
     **Python**
     ```python
     # Add logic to book a flight
-    flight = next((f for f in flights if f.Id == flight_id), None)
+    flight = next((f for f in self.flights if f.Id == flight_id), None)
     
     if flight is None:
         return "Flight not found. Please provide a valid flight ID."
@@ -271,7 +271,7 @@ Now you create a plugin class for your travel agent. The class includes function
     **Python**
     ```python
     # Add the plugin to the kernel
-    kernel.add_plugin(FlightBookingPlugin())
+    kernel.add_plugin(FlightBookingPlugin(), "flight_booking_plugin")
     ```
 
     **C#**

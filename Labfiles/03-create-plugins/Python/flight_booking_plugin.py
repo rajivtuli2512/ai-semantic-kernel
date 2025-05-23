@@ -6,12 +6,12 @@ from semantic_kernel.functions.kernel_function_decorator import kernel_function
 
 @dataclass
 class FlightModel:
-    id: int
-    airline: str
-    destination: str
-    departure_date: str
-    price: float
-    is_booked: bool = False
+    Id: int
+    Airline: str
+    Destination: str
+    DepartureDate: str
+    Price: float
+    IsBooked: bool = False
 
 
 class FlightBookingPlugin:
