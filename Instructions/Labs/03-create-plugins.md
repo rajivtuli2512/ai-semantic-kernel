@@ -221,7 +221,7 @@ Now you create a plugin class for your travel agent. The class includes function
         return "You've already booked this flight."
 
     flight.IsBooked = True
-    save_flights_to_file()
+    self.save_flights_to_file()
 
     return (
         f"Flight booked successfully! Airline: {flight.Airline}, "
@@ -285,7 +285,7 @@ Now you create a plugin class for your travel agent. The class includes function
     **Python**
     ```python
     # Configure function choice behavior
-    settings=PromptExecutionSettings(
+    settings = AzureChatPromptExecutionSettings(
         function_choice_behavior=FunctionChoiceBehavior.Auto(),
     )
     ```

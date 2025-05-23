@@ -3,8 +3,10 @@ import asyncio
 from dotenv import load_dotenv
 from semantic_kernel import Kernel
 from semantic_kernel.contents.chat_history import ChatHistory
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
+from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, AzureChatPromptExecutionSettings
+from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
 from semantic_kernel.functions.kernel_arguments import KernelArguments
+from flight_booking_plugin import FlightBookingPlugin
 
 async def main():
 
@@ -35,7 +37,7 @@ async def main():
         reply = await chat_completion.get_chat_message_content(
             chat_history=chat_history,
             kernel=kernel,
-            settings=execution_settings
+            settings=settings
         )
         print("Assistant:", reply)
         chat_history.add_assistant_message(str(reply))
