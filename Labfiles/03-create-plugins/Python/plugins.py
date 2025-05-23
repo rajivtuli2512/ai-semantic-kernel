@@ -53,9 +53,9 @@ async def main():
         chat_history.add_user_message(msg)
 
     chat_history.add_user_message("Find me a flight to Tokyo on the 19")
-    get_reply()
+    await get_reply()
     get_input()
-    get_reply()
+    await get_reply()
 
 if __name__ == "__main__":
         asyncio.run(main())
