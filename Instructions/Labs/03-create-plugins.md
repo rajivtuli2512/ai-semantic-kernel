@@ -124,7 +124,7 @@ Now you're ready to begin the exercise. Good luck!
 
 ### Create a flight booking plugin
 
-Now you create a plugin class for your travel agent. The class includes functions to search for available flights and book a selected flight for the user. A `flights.json` file is included in the project which contains some sample flight information.
+Now you create a plugin class for your travel assistant. The class includes functions to search for available flights and book a selected flight for the user. A `flights.json` file is included in the project which contains some sample flight information.
 
 > **Tip**: As you add code, be sure to maintain the correct indentation.
 
@@ -362,9 +362,11 @@ Now you configure your kernel so that only selected functions are available to a
     };
     ```
 
+1. After you've updated the code, use the **CTRL+S** command to save your changes.
+
 1. Run the code as is to observe the difference in behavior.
 
-    Enter `dotnet run` in the terminal to run the code. If you request to book the flight, you should see output similar to the following:
+    If you request to book the flight, you should see output similar to the following:
 
     ```output
     User: Find me a flight to Tokyo on the 19

@@ -3,7 +3,7 @@
 // Import namespaces
 
 
-string filePath = Path.GetFullPath("../../appsettings.json");
+string filePath = Path.GetFullPath("appsettings.json");
 var config = new ConfigurationBuilder()
     .AddJsonFile(filePath)
     .Build();
