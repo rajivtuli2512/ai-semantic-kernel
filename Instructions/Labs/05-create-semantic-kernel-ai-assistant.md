@@ -65,7 +65,7 @@ Now that you deployed a model, you can use the Semantic Kernel SDK to create a c
 
     ```
     rm -r semantic-kernel -f
-    git clone https://github.com/MicrosoftLearning/AZ-2005-Develop-AI-agents-OpenAI-Semantic-Kernel-SDK semantic-kernel
+    git clone https://github.com/MicrosoftLearning/mslearn-ai-semantic-kernel mslearn-ai-semantic-kernel
     ```
 
     > **Tip**: As you paste commands into the cloudshell, the output may take up a large amount of the screen buffer. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
@@ -76,12 +76,12 @@ Now that you deployed a model, you can use the Semantic Kernel SDK to create a c
 
     **Python**
     ```
-    cd semantic-kernel/Allfiles/Labs/Devops/python
+    cd mslearn-ai-semantic-kernel/Labfiles/05-ai-assistant/Python
     ```
 
     **C#**
     ```
-    cd semantic-kernel/Allfiles/Labs/Devops/c-sharp
+    cd mslearn-ai-semantic-kernel/Labfiles/05-ai-assistant/C-sharp
     ```
 
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
