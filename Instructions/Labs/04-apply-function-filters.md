@@ -1,6 +1,6 @@
 ---
 lab:
-    title: 'Apply filers on functions'
+    title: 'Apply filters on functions'
     description: 'Learn how to apply filters on functions with Semantic Kernel.'
 ---
 
