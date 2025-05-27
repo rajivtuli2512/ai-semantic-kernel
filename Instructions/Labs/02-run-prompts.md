@@ -177,10 +177,10 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
     **C#**
     ```c#
     // Create the chat history
-    var history = new ChatHistory();
+    var chatHistory = new ChatHistory();
     ```
 
-1. Locate the comment **Get the reply from the chat completion service** near the bottom of the file and add the following code:
+1. Locate the comment **Get the reply from the chat completion service** and add the following code:
 
     **Python**
     ```python
@@ -188,7 +188,7 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
     reply = await chat_completion.get_chat_message_content(
         chat_history=chat_history,
         kernel=kernel,
-        settings=settings
+        settings=AzureChatPromptExecutionSettings()
     )
     print("Assistant:", reply)
     chat_history.add_assistant_message(str(reply))
@@ -198,11 +198,11 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
     ```c#
     // Get the reply from the chat completion service
     ChatMessageContent reply = await chatCompletionService.GetChatMessageContentAsync(
-        history,
+        chatHistory,
         kernel: kernel
     );
     Console.WriteLine("Assistant: " + reply.ToString());
-    history.AddAssistantMessage(reply.ToString());
+    chatHistory.AddAssistantMessage(reply.ToString());
     ```
 
     This code retrieves the reply from the LLM, outputs it to the console, and appends it to the chat history.
@@ -212,6 +212,24 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
     **Python**
     ```python
     # Create a semantic kernel prompt template
+    sk_prompt_template = KernelPromptTemplate(
+        prompt_template_config=PromptTemplateConfig(
+            template="""
+            You are a helpful career advisor. Based on the users's skills and interest, suggest up to 5 suitable roles.
+            Return the output as JSON in the following format:
+            "Role Recommendations":
+            {
+            "recommendedRoles": [],
+            "industries": [],
+            "estimatedSalaryRange": ""
+            }
+
+            My skills are: {{$skills}}. My interests are: {{$interests}}. What are some roles that would be suitable for me?
+            """,
+            name="recommend_roles_prompt",
+            template_format="semantic-kernel",
+        )
+    )
     ```    
 
     **C#**
@@ -239,7 +257,13 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
     **Python**
     ```python
     # Render the Semanitc Kernel prompt with arguments
-    
+    sk_rendered_prompt = await sk_prompt_template.render(
+        kernel,
+        KernelArguments(
+            skills="Software Engineering, C#, Python, Drawing, Guitar, Dance",
+            interests="Education, Psychology, Programming, Helping Others"
+        )
+    )
     ```    
 
     **C#**
@@ -260,13 +284,14 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
     **Python**
     ```python
     # Add the Semanitc Kernel prompt to the chat history and get the reply
-
+    chat_history.add_user_message(sk_rendered_prompt)
+    await get_reply()
     ```
 
     **C#**
     ```c#
     // Add the Semanitc Kernel prompt to the chat history and get the reply
-    history.AddUserMessage(skRenderedPrompt);
+    chatHistory.AddUserMessage(skRenderedPrompt);
     await GetReply();
     ```
 
@@ -279,7 +304,29 @@ Now you create a prompt that identifies the user's missing skills for a role and
     **Python**
     ```python
     # Create a handlebars template
-    
+    hb_prompt_template = HandlebarsPromptTemplate(
+        prompt_template_config=PromptTemplateConfig(
+            template="""
+            <message role="system">
+            Instructions: You are a career advisor. Analyze the skill gap between 
+            the user's current skills and the requirements of the target role.
+            </message>
+            <message role="user">Target Role: {{targetRole}}</message>
+            <message role="user">Current Skills: {{currentSkills}}</message>
+
+            <message role="assistant">
+            "Skill Gap Analysis":
+            {
+                "missingSkills": [],
+                "coursesToTake": [],
+                "certificationSuggestions": []
+            }
+            </message>
+            """,
+            name="missing_skills_prompt",
+            template_format="handlebars",
+        )
+    )
     ```
 
     **C#**
@@ -317,7 +364,13 @@ Now you create a prompt that identifies the user's missing skills for a role and
     **Python**
     ```python
     # Render the Handlebars prompt with arguments
-
+    hb_rendered_prompt = await hb_prompt_template.render(
+        kernel,
+        KernelArguments(
+            targetRole="Game Developer",
+            currentSkills="Software Engineering, C#, Python, Drawing, Guitar, Dance"
+        )
+    )
     ```
 
     **C#**
@@ -338,13 +391,14 @@ Now you create a prompt that identifies the user's missing skills for a role and
     **Python**
     ```python
     # Add the Handlebars prompt to the chat history and get the reply
-
+    chat_history.add_user_message(hb_rendered_prompt)
+    await get_reply()
     ```
 
     **C#**
     ```c#
     // Add the Handlebars prompt to the chat history and get the reply
-    history.AddUserMessage(hbRenderedPrompt);
+    chatHistory.AddUserMessage(hbRenderedPrompt);
     await GetReply();
     ```
 
@@ -355,7 +409,8 @@ Now you create a prompt that identifies the user's missing skills for a role and
     **Python**
     ```python
     # Get a follow-up prompt from the user
-
+    print("Assistant: How can I help you?")
+    user_input = input("User: ")
     ```
 
     **C#**
@@ -371,13 +426,14 @@ Now you create a prompt that identifies the user's missing skills for a role and
     **Python**
     ```python
     # Add the user input to the chat history and get the reply
-
+    chat_history.add_user_message(user_input)
+    await get_reply()
     ```
 
     **C#**
     ```c#
     // Add the user input to the chat history and get the reply
-    history.AddUserMessage(input);
+    chatHistory.AddUserMessage(input);
     await GetReply();
     ```
 
@@ -425,17 +481,17 @@ Now you create a prompt that identifies the user's missing skills for a role and
     You should see output similar to the following:
 
     ```output
-    Assistant: 
-    ### **Skill Acquisition Time:**
-    1. **Game Development Frameworks and Engines (Unity/Unreal Engine):**
-    - **Time Estimate:** 3-6 months
-    - Learn the basics of one engine, build small projects, and complete intermediate tutorials. Advanced mastery may take longer.
-
-    2. **Game Design Principles:**
-    - **Time Estimate:** 2-4 months
-    - Learn game mechanics, storytelling, level design, and UX/UI for games while working on small projects.
-
-    (continued...)
+   "Skill Acquisition Estimate":
+    {
+        "estimatedTime": {
+            "Unity/Unreal Engine proficiency": "3-6 months (focused learning and project-based practice)",
+            "Game mechanics and physics programming": "2-4 months (depending on your familiarity with algorithms and physics concepts)",
+            "3D modeling/animation skills": "4-6 months (if learning beginner-to-intermediate-level modeling tools like Blender or Maya)",
+            "Level design and storytelling techniques": "2-3 months (with regular game project work and creative design exercises)",
+            "Version control systems like Git": "1 month (trial-and-error practice with collaborative coding workflows)"
+        },
+        "totalEstimatedTime": "9-18 months (if pursued part-time with a consistent learning schedule)"
+    }
     ```
 
 Now you successfully invoked prompts and prompt templates on your AI model using the Semantic Kernel SDK. Great work!
