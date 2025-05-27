@@ -247,10 +247,10 @@ Now you create a plugin class for your travel agent. The class includes function
     flight.IsBooked = true;
     SaveFlightsToFile();
     
-    return $"""Flight booked successfully! Airline: {flight.Airline}, 
-        Destination: {flight.Destination}, 
-        Departure: {flight.DepartureDate}, 
-        Price: ${flight.Price}.""";
+    return @$"Flight booked successfully! Airline: {flight.Airline}, 
+            Destination: {flight.Destination}, 
+            Departure: {flight.DepartureDate}, 
+            Price: ${flight.Price}.";
     ```
 
 
@@ -277,7 +277,7 @@ Now you create a plugin class for your travel agent. The class includes function
     **C#**
     ```c#
     // Add a plugin to the kernel*
-    kernel.Plugins.AddFromType<FlightBookingPlugin>("FlightBooking");
+    kernel.Plugins.AddFromType<FlightBookingPlugin>("FlightBookingPlugin");
     ```
 
 1. Add the following code under the comment **Configure function choice behavior**
