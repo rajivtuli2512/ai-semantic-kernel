@@ -192,7 +192,18 @@ In this task, you add a filter function that will request the user's approval be
     kernel.FunctionInvocationFilters.Add(new PermissionFilter());
     ```
 
-1. Enter `dotnet run` in the terminal to test your new filter.
+1. In the terminal to test your new filter.
+
+    **Python**
+    ```python
+    # Enter the command
+    python filters.py
+    ```
+
+    **C#**
+    // Enter the command
+    dotnet run
+    ```
 
     Try denying the approval request. You should see a response similar to the following output:
 
