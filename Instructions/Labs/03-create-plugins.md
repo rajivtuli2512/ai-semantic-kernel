@@ -190,6 +190,7 @@ Now you create a plugin class for your travel assistant. The class includes func
 
     **Python**
     ```python
+    # Create a kernel function to book flights
     @kernel_function(description="Books a flight based on the flight ID provided")
     def book_flight(self, flight_id):
         # Add logic to book a flight

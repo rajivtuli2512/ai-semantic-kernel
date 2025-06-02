@@ -161,6 +161,7 @@ Now that you deployed a model, you can use the Semantic Kernel SDK to create a c
     kernel.add_service(chat_completion)
     ```
 
+    **C#**
     ```C#
     // Create a kernel with Azure OpenAI chat completion
     var builder = Kernel.CreateBuilder().AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
@@ -186,6 +187,8 @@ Now that you deployed a model, you can use the Semantic Kernel SDK to create a c
     ```
 
 1. After you've updated the code, use the **CTRL+S** command to save your changes.
+
+1. Use the **CTRL+Q** command to close the code editor.
 
 1. Run the code using the following command:
 
@@ -217,8 +220,6 @@ Now that you deployed a model, you can use the Semantic Kernel SDK to create a c
     ```
 
     The response comes from the Azure OpenAI model you passed to the kernel. The Semantic Kernel SDK is able to connect to the large language model (LLM) and run the prompt. Notice how quickly you were able to receive responses from the LLM. The Semantic Kernel SDK makes building smart applications easy and efficient.
-
-1. Use the **CTRL+Q** command to close the code editor.
 
 ## Summary
 
