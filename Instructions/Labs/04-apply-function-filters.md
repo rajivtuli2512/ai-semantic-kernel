@@ -27,7 +27,7 @@ This exercise takes approximately **10** minutes to complete.
 
     > \* Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
 
-1. Select **Create** and wait for your project, including the gpt-4 model deployment you selected, to be created.
+1. Select **Create** and wait for your project, including the gpt-4o model deployment you selected, to be created.
 1. When your project is created, the chat playground will be opened automatically.
 1. In the navigation pane on the left, select **Overview** to see the main page for your project; which looks like this:
 
@@ -66,7 +66,7 @@ Now you're ready to create a Semantic Kernel client app that provides different 
     git clone https://github.com/MicrosoftLearning/mslearn-ai-semantic-kernel mslearn-ai-semantic-kernel
     ```
 
-    > **Tip**: As you paste commands into the cloudshell, the ouput may take up a large amount of the screen buffer. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+    > **Tip**: As you paste commands into the cloudshell, the output may take up a large amount of the screen buffer. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
 
 1. After the repo has been cloned, navigate to the folder containing the application code files:  
 
@@ -201,6 +201,7 @@ In this task, you add a filter function that will request the user's approval be
     ```
 
     **C#**
+    ```
     // Enter the command
     dotnet run
     ```
