@@ -150,7 +150,7 @@ Now that you deployed a model, you can use the Semantic Kernel SDK to create a c
      ```c#
     // Create a kernel builder with Azure OpenAI chat completion
     var builder = Kernel.CreateBuilder();
-    builder.AddAzureOpenAIChatCompletion(apiKey, endpoint, deploymentName);
+    builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
     var kernel = builder.Build();
     ```
 
