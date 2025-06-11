@@ -27,7 +27,7 @@ This exercise takes approximately **15** minutes to complete.
 
     > \* Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
 
-1. Select **Create** and wait for your project, including the gpt-4 model deployment you selected, to be created.
+1. Select **Create** and wait for your project, including the gpt-4o model deployment you selected, to be created.
 1. When your project is created, the chat playground will be opened automatically.
 1. In the navigation pane on the left, select **Overview** to see the main page for your project; which looks like this:
 
@@ -66,7 +66,7 @@ Now that you deployed a model, you're ready to create a Semantic Kernel client a
     git clone https://github.com/MicrosoftLearning/mslearn-ai-semantic-kernel mslearn-ai-semantic-kernel
     ```
 
-    > **Tip**: As you paste commands into the cloudshell, the ouput may take up a large amount of the screen buffer. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+    > **Tip**: As you paste commands into the cloudshell, the output may take up a large amount of the screen buffer. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
 
 1. After the repo has been cloned, navigate to the folder containing the application code files:  
 
@@ -164,7 +164,7 @@ Now you create a plugin class for your travel assistant. The class includes func
     }
     ```
 
-    The kernel function decorators help the AI understand how to call your functon.
+    The kernel function decorators help the AI understand how to call your function.
 
 1. Add the following code under the comment **Filter flights based on destination**
 
@@ -176,7 +176,7 @@ Now you create a plugin class for your travel assistant. The class includes func
         if flight.Destination.lower() == destination.lower() and flight.DepartureDate == departure_date
     ]
     return matching_flights
-    ```    
+    ```
 
     **C#**
     ```c#
@@ -194,7 +194,7 @@ Now you create a plugin class for your travel assistant. The class includes func
     @kernel_function(description="Books a flight based on the flight ID provided")
     def book_flight(self, flight_id):
         # Add logic to book a flight
-    ```    
+    ```
 
     **C#**
     ```c#
@@ -229,7 +229,7 @@ Now you create a plugin class for your travel assistant. The class includes func
         f"Destination: {flight.Destination}, Departure: {flight.DepartureDate}, "
         f"Price: ${flight.Price}."
     )
-    ```    
+    ```
 
     **C#**
     ```c#
