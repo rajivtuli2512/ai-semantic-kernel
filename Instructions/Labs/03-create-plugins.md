@@ -347,7 +347,7 @@ Now you configure your kernel so that only selected functions are available to a
     **Python**
     ```python
         # Configure function choice behavior
-        settings=PromptExecutionSettings(
+        settings=AzureChatPromptExecutionSettings(
             function_choice_behavior=FunctionChoiceBehavior.Auto(filters={"included_functions": ["search_flights"]}),
         )
     ```
