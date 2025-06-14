@@ -98,7 +98,7 @@ Now that you deployed a model, you're ready to create a Semantic Kernel client a
 
     ```
     dotnet add package Microsoft.SemanticKernel
-    dotnet add package Microsoft.SemanticKernel.PromptTemplates.Handlebars;
+    dotnet add package Microsoft.SemanticKernel.PromptTemplates.Handlebars
     ```
 
 1. Enter the following command to edit the configuration file that has been provided:
