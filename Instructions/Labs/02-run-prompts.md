@@ -256,7 +256,7 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
 
     **Python**
     ```python
-    # Render the Semanitc Kernel prompt with arguments
+    # Render the Semantic Kernel prompt with arguments
     sk_rendered_prompt = await sk_prompt_template.render(
         kernel,
         KernelArguments(
@@ -268,7 +268,7 @@ Now you create a prompt template that instructs the AI to suggest suitable roles
 
     **C#**
     ```c#
-    // Render the Semanitc Kernel prompt with arguments
+    // Render the Semantic Kernel prompt with arguments
     var skRenderedPrompt = await skPromptTemplate.RenderAsync(
         kernel,
         new KernelArguments
