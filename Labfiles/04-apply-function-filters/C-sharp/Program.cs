@@ -58,7 +58,7 @@ void AddUserMessage(string msg)
     history.AddUserMessage(msg);
 }
 
-// Implement the function filter interface
+// Create the function filer class
 public class PermissionFilter
 {
 
